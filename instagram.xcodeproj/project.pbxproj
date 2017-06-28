@@ -18,6 +18,7 @@
 		B815172A1F030970007B6675 /* instagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81517291F030970007B6675 /* instagramTests.swift */; };
 		B81517351F030970007B6675 /* instagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81517341F030970007B6675 /* instagramUITests.swift */; };
 		B81517431F031109007B6675 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81517421F031109007B6675 /* LoginViewController.swift */; };
+		B81517451F0334DA007B6675 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81517441F0334DA007B6675 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B81517341F030970007B6675 /* instagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instagramUITests.swift; sourceTree = "<group>"; };
 		B81517361F030970007B6675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B81517421F031109007B6675 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B81517441F0334DA007B6675 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		D7353826F39BF92204F5B6A4 /* Pods-instagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagramUITests/Pods-instagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EAE399ADA5080D4C484669DC /* Pods_instagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				B815171D1F03096F007B6675 /* LaunchScreen.storyboard */,
 				B81517201F03096F007B6675 /* Info.plist */,
 				B81517421F031109007B6675 /* LoginViewController.swift */,
+				B81517441F0334DA007B6675 /* FeedViewController.swift */,
 			);
 			path = instagram;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			files = (
 				B81517431F031109007B6675 /* LoginViewController.swift in Sources */,
 				B81517171F03096F007B6675 /* ViewController.swift in Sources */,
+				B81517451F0334DA007B6675 /* FeedViewController.swift in Sources */,
 				B81517151F03096F007B6675 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

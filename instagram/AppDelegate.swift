@@ -25,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        if PFUser.current() != nil {
+            print("Welcome")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "NavBar")
+            window?.rootViewController = loginViewController
+        }
+        
         return true
     }
 

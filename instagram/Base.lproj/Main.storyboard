@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -57,17 +57,17 @@
                     <connections>
                         <outlet property="passwordField" destination="d9K-Zk-AxR" id="2KO-v2-Ifd"/>
                         <outlet property="usernameField" destination="uhq-z5-2Dh" id="TLn-bB-DPs"/>
-                        <segue destination="XJR-oP-ym0" kind="presentation" identifier="loginSegue" id="LEh-oX-Xnk"/>
+                        <segue destination="Rkg-no-j0Z" kind="presentation" identifier="loginSegue" id="LEh-oX-Xnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="84" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed-->
         <scene sceneID="Z2O-Yq-W9f">
             <objects>
-                <viewController id="XJR-oP-ym0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="XJR-oP-ym0" customClass="FeedViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WoN-nN-tIa"/>
                         <viewControllerLayoutGuide type="bottom" id="WSa-pz-iyV"/>
@@ -77,10 +77,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Feed" id="fJJ-Xi-NFX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdK-7W-53S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="38"/>
+            <point key="canvasLocation" x="1704.8" y="37.331334332833585"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3EX-lu-KCX">
+            <objects>
+                <navigationController storyboardIdentifier="NavBar" automaticallyAdjustsScrollViewInsets="NO" id="Rkg-no-j0Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yYA-p5-dFk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XJR-oP-ym0" kind="relationship" relationship="rootViewController" id="5zC-1d-ctt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhc-Un-ohk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="765.60000000000002" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>
