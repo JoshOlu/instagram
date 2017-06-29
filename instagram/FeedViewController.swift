@@ -12,7 +12,7 @@ import Parse
 class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableVIew: UITableView!
-
+    var feed: [PFObject] = []
     
     @IBAction func logOutButton(_ sender: Any) {
         PFUser.logOutInBackground { (error: Error?) in
@@ -25,16 +25,39 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // construct PFQuery
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+        
+            if let posts = posts {
+                // do something with the data fetched
+                self.feed = posts
+                self.tableVIew.reloadData()
+            } else {
+                // handle error
+                print(error)
+            }
+        }
+        
         tableVIew.dataSource = self
     
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return feed.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableVIew.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
+        let cell = tableVIew.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
+        let indexOfTheCellWeAreConfiguring = indexPath.row
+        let post = feed[indexOfTheCellWeAreConfiguring]
+        cell.feedLabel.text = post["caption"] as? String
+        cell.instagramPost = post
         return cell
     }
 

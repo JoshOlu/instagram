@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class FeedCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var feedLabel: UILabel!
+    
+    @IBOutlet weak var feedPhoto: PFImageView!
+    var instagramPost: PFObject! {
+        didSet {
+            self.feedPhoto.file = instagramPost["media"] as? PFFile
+            self.feedPhoto.loadInBackground()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
