@@ -13,6 +13,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet weak var tableVIew: UITableView!
     var feed: [PFObject] = []
+    var refreshControl: UIRefreshControl!
     
     @IBAction func logOutButton(_ sender: Any) {
         PFUser.logOutInBackground { (error: Error?) in
@@ -25,7 +26,22 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(FeedViewController.didPullToRefresh(_:)), for: .valueChanged)
+        tableVIew.insertSubview(refreshControl, at: 0)
         // construct PFQuery
+        
+        tableVIew.dataSource = self
+        fetchFeed()
+    
+    }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        fetchFeed()
+    }
+    
+    func fetchFeed(){
         let query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
         query.includeKey("author")
@@ -33,19 +49,17 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // fetch data asynchronously
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-        
+            
             if let posts = posts {
                 // do something with the data fetched
                 self.feed = posts
                 self.tableVIew.reloadData()
+                self.refreshControl.endRefreshing()
             } else {
                 // handle error
                 print(error)
             }
         }
-        
-        tableVIew.dataSource = self
-    
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
