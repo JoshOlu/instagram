@@ -7,13 +7,35 @@
 //
 
 import UIKit
+import Parse
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableVIew: UITableView!
+
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            print("user logged out")
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let userVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.present(userVC, animated: true, completion: nil)
+            }
+        }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableVIew.dataSource = self
+    
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableVIew.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +43,11 @@ class FeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    
+    
+
 
     /*
     // MARK: - Navigation
