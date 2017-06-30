@@ -74,6 +74,16 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cell.instagramPost = post
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let feedViewController = segue.destination as! PostDetailsViewController
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableVIew.indexPath(for: cell){
+            let onepost = feed[indexPath.row]
+            feedViewController.postDetails = onepost
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

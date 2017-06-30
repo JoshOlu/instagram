@@ -81,11 +81,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="284" id="LjJ-Dp-759" customClass="FeedCell" customModule="instagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="284" id="LjJ-Dp-759" customClass="FeedCell" customModule="instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="284"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LjJ-Dp-759" id="NHe-dy-ORo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="283.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="283.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-6v-kkp" customClass="PFImageView">
@@ -104,6 +104,7 @@
                                         <connections>
                                             <outlet property="feedLabel" destination="gt3-yx-W7F" id="lBy-ej-pl0"/>
                                             <outlet property="feedPhoto" destination="aJz-6v-kkp" id="Bx7-VB-8ii"/>
+                                            <segue destination="tR8-pI-pS8" kind="push" id="uyN-oX-x56"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -139,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdK-7W-53S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533.5999999999999" y="35.532233883058474"/>
+            <point key="canvasLocation" x="1654" y="-1138"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="yi3-wM-cjy">
@@ -200,6 +201,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsS-Dd-IGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2298" y="36"/>
+        </scene>
+        <!--Post Details View Controller-->
+        <scene sceneID="YMa-1H-h4N">
+            <objects>
+                <viewController id="tR8-pI-pS8" customClass="PostDetailsViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C7h-fA-nZc"/>
+                        <viewControllerLayoutGuide type="bottom" id="bP9-e6-EIQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G51-u8-Tm8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5N-B9-hhp" customClass="PFImageView">
+                                <rect key="frame" x="29" y="72" width="317" height="228"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puJ-3H-FZj">
+                                <rect key="frame" x="29" y="308" width="317" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Stamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-N8-fG0">
+                                <rect key="frame" x="29" y="342" width="317" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="niM-kL-mRI"/>
+                    <connections>
+                        <outlet property="photoInDetails" destination="Z5N-B9-hhp" id="l0a-Gs-HVb"/>
+                        <outlet property="timeCreated" destination="puJ-3H-FZj" id="91i-EC-7Tw"/>
+                        <outlet property="timeStamp" destination="X7q-N8-fG0" id="H01-il-1fc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rej-Ss-kV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3197.5999999999999" y="41.829085457271368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3EX-lu-KCX">
