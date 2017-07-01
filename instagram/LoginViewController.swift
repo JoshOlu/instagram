@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
         
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Sign up error: (error.localizedDescription)")
             } else {
                 print("User Registered successfully")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)

@@ -23,15 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.applicationId = "JOInstagram"
                 configuration.server = "https://enigmatic-chamber-74782.herokuapp.com/parse"
             })
+            
         )
-        
         if PFUser.current() != nil {
             print("Welcome")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            window?.rootViewController = loginViewController
+            let feedViewController = storyboard.instantiateViewController(withIdentifier: "navController")
+            window?.rootViewController = feedViewController
+        } else {
+            print("No user")
         }
-        
+
         return true
     }
 

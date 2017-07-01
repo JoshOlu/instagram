@@ -57,7 +57,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.refreshControl.endRefreshing()
             } else {
                 // handle error
-                print(error)
+                print("Fetch feed error: \(error?.localizedDescription)")
             }
         }
     }
@@ -75,14 +75,21 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return cell
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "photoDetailsSegue" {
         let feedViewController = segue.destination as! PostDetailsViewController
         let cell = sender as! UITableViewCell
         if let indexPath = tableVIew.indexPath(for: cell){
             let onepost = feed[indexPath.row]
             feedViewController.postDetails = onepost
-        }
+            
+        } else if segue.identifier == "postDetailsSegue" {
+            
+            }
         
+    }
     }
 
     override func didReceiveMemoryWarning() {
