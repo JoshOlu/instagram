@@ -1,6 +1,6 @@
 # instagram
 
-# Project 3 -
+# Project 3
 
 **Name of your app** is a photo sharing app using Parse as its backend.
 
